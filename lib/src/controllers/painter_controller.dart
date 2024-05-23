@@ -321,6 +321,7 @@ class PainterController extends ValueNotifier<PainterControllerValue> {
 
     if(kDebugMode){
       print(painterKey.currentContext?.size); //usual current context size
+      print(annotateSize); // aka annotateSize
       print(size); //image size
     }
 
