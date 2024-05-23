@@ -318,13 +318,6 @@ class PainterController extends ValueNotifier<PainterControllerValue> {
   /// All drawables will be scaled according to that image size.
   Future<ui.Image> renderImage(Size annotateSize, Size size) async {
     final recorder = ui.PictureRecorder();
-
-    if(kDebugMode){
-      print(painterKey.currentContext?.size); //usual current context size
-      print(annotateSize); // aka annotateSize
-      print(size); //image size
-    }
-
     final canvas = Canvas(recorder);
     final painter = Painter(
       drawables: value.drawables,
