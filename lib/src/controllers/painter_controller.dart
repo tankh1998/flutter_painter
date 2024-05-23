@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'dart:ui' as ui;
 
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'events/selected_object_drawable_removed_event.dart';
 import '../views/widgets/painter_controller_widget.dart';
@@ -317,6 +318,12 @@ class PainterController extends ValueNotifier<PainterControllerValue> {
   /// All drawables will be scaled according to that image size.
   Future<ui.Image> renderImage(Size size) async {
     final recorder = ui.PictureRecorder();
+
+    if(kDebugMode){
+      print(painterKey.currentContext?.size);
+      print(size);
+    }
+
     final canvas = Canvas(recorder);
     final painter = Painter(
       drawables: value.drawables,
