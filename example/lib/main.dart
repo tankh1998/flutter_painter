@@ -569,11 +569,12 @@ class _FlutterPainterExampleState extends State<FlutterPainterExample> {
     if (backgroundImage == null) return;
     final backgroundImageSize = Size(
         backgroundImage!.width.toDouble(), backgroundImage!.height.toDouble());
-
+    
+    final annotateSize = controller.painterKey.currentContext!.size ?? backgroundImageSize;
     // Render the image
     // Returns a [ui.Image] object, convert to to byte data and then to Uint8List
     final imageFuture = controller
-        .renderImage(backgroundImageSize)
+        .renderImage(annotateSize,backgroundImageSize)
         .then<Uint8List?>((ui.Image image) => image.pngBytes);
 
     // From here, you can write the PNG image data a file or do whatever you want with it
